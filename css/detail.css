@@ -1,0 +1,328 @@
+/**
+ * Sushmita Sharma Portfolio - Case Study & Blog Post Detail Styles
+ * Prose Typography, Back Navigation, Metadata, and Markdown Rendered Output
+ */
+
+/* ==========================================================================
+   1. Article Container
+   ========================================================================== */
+.art {
+  max-width: 680px;
+  padding: 40px 22px 36px;
+  margin: 0 auto;
+}
+
+.art-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  text-decoration: none;
+  transition: transform var(--transition-fast);
+}
+
+.art-back:hover {
+  transform: translateX(-4px);
+}
+
+.art .meta {
+  color: var(--color-mute);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.art h1 {
+  font-size: clamp(1.7rem, 3.8vw, 2.4rem);
+  max-width: none;
+  margin: 8px 0 16px;
+  line-height: 1.2;
+}
+
+.art .chips {
+  margin-bottom: 28px;
+}
+
+/* ==========================================================================
+   2. Prose & Markdown Content Styling
+   ========================================================================== */
+.art-body {
+  margin-top: 28px;
+  margin-bottom: 36px;
+}
+
+.art-body h2 {
+  font-size: 1.25rem;
+  margin: 28px 0 10px;
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+.art-body h3 {
+  font-size: 1.1rem;
+  margin: 20px 0 8px;
+}
+
+.art-body p,
+.art-body li {
+  color: var(--color-ink-secondary);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.art-body p {
+  margin-bottom: 1.2rem;
+}
+
+.art-body ul {
+  margin: 12px 0 20px 24px;
+}
+
+.art-body li {
+  margin-bottom: 6px;
+}
+
+.art-body strong,
+.art-body b {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   3. Call To Action Footer
+   ========================================================================== */
+.art-cta-section {
+  border-top: 1px solid var(--color-line);
+  padding-top: 28px;
+  margin-top: 36px;
+}
+
+/* ==========================================================================
+   4. Live Dashboard Embed
+   ========================================================================== */
+.dashboard-section {
+  margin-top: 40px;
+  border-top: 1px solid var(--color-line);
+  padding-top: 28px;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.dashboard-title {
+  font-size: 1.15rem;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.dashboard-open-btn {
+  font-size: 0.82rem;
+  padding: 8px 16px;
+  gap: 6px;
+}
+
+.dashboard-iframe-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-card);
+  background: var(--color-surface);
+}
+
+.dashboard-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Fallback shown when the site blocks iframe embedding */
+.dashboard-blocked {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 32px 24px;
+  text-align: center;
+  background: var(--color-surface);
+  color: var(--color-mute);
+}
+
+.dashboard-blocked svg {
+  opacity: 0.4;
+  color: var(--color-primary);
+}
+
+.dashboard-blocked p {
+  font-size: 0.92rem;
+  color: var(--color-mute);
+  max-width: 28em;
+  margin: 0;
+}
+
+/* ==========================================================================
+   6. Attachments — Image Gallery & Document Links
+   ========================================================================== */
+.attach-section {
+  margin-top: 40px;
+  border-top: 1px solid var(--color-line);
+  padding-top: 28px;
+}
+
+.attach-section-title {
+  font-size: 1.15rem;
+  color: var(--color-ink);
+  margin-bottom: 18px;
+}
+
+/* Responsive image grid */
+.attach-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.attach-figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
+  aspect-ratio: 4/3;
+}
+
+.attach-img-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.attach-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.attach-img-link:hover .attach-img {
+  transform: scale(1.03);
+  opacity: 0.92;
+}
+
+/* Document download cards */
+.attach-doc-list {
+  display: grid;
+  gap: 8px;
+}
+
+.attach-doc-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-ink);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.attach-doc-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(3px);
+  color: var(--color-ink);
+}
+
+.attach-doc-ext {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: var(--color-primary);
+  padding: 3px 7px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  min-width: 36px;
+  text-align: center;
+}
+
+.attach-doc-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.attach-doc-dl {
+  color: var(--color-mute);
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+.attach-doc-card:hover .attach-doc-dl {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+/* Single-image full-width layout */
+.attach-image-grid:has(.attach-figure:only-child) {
+  grid-template-columns: 1fr;
+}
+
+.attach-image-grid:has(.attach-figure:only-child) .attach-figure {
+  aspect-ratio: 16/9;
+  max-height: 460px;
+}
+
+@media (max-width: 600px) {
+  .attach-image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+.project-video-section {
+  margin-top: 40px;
+  border-top: 1px solid var(--color-line);
+  padding-top: 28px;
+}
+
+.project-video-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-card);
+  background: #000;
+  line-height: 0; /* prevent gap under video */
+}
+
+.project-video-player {
+  width: 100%;
+  max-height: 520px;
+  display: block;
+  background: #000;
+}
+

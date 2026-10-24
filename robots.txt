@@ -1,0 +1,9 @@
+# Sushmita Sharma Portfolio Robots Configuration
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /setup.html
+
+# Sitemap reference
+Sitemap: https://sushmita-sharma1.github.io/sitemap.xml
+

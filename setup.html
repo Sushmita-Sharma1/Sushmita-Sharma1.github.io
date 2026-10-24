@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Setup | Sushmita Sharma</title>
+  <meta name="description" content="Create admin login credentials securely.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Security policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Setup | Sushmita Sharma">
+  <meta property="og:description" content="Create admin login credentials securely.">
+  <meta name="theme-color" content="#ffffff">
+  
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  
+  
+  <!-- Modular Stylesheets (Separation of Concerns) -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#app" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header -->
+  <header>
+    <div class="w">
+      <a class="logo" href="index.html">Sushmita<b>.</b>data</a>
+      <nav aria-label="Main Navigation">
+        <a href="index.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="app" tabindex="-1">
+    <section class="no-border">
+      <div class="w">
+        <header class="admin-header">
+          <p class="kick">One-time setup</p>
+          <h1 class="full-width">Create admin login</h1>
+          <p class="lead">Your password is hashed directly in this browser and never transmitted over the network. Save the result as <b>data/auth.js</b>, then remove this setup.html file from production hosting.</p>
+        </header>
+
+        <form class="auth-form" id="sf">
+          <label for="setup-username">
+            Username
+            <input id="setup-username" name="username" autocomplete="username" required maxlength="64">
+          </label>
+          <label for="setup-password">
+            Password (10+ characters)
+            <input id="setup-password" name="password" type="password" autocomplete="new-password" required minlength="10">
+          </label>
+          <label for="setup-confirm">
+            Confirm password
+            <input id="setup-confirm" name="confirm" type="password" autocomplete="new-password" required>
+          </label>
+          <div>
+            <button type="submit">Generate auth.js</button>
+          </div>
+          <p class="auth-status" id="msg" role="status"></p>
+
+          <label for="out" class="sr-only">Generated JavaScript output</label>
+          <textarea class="setup-output" id="out" readonly hidden></textarea>
+          
+          <div>
+            <button class="o" type="button" id="dlauth" hidden>Download auth.js</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="w">
+      <span>&copy; <span id="yr">2026</span> Sushmita Sharma, data analyst, Delhi</span>
+      <span>
+        <a href="mailto:sushmitasharma741@gmail.com">Email</a> &middot;
+        <a href="https://www.linkedin.com/in/sushmita-sharma-b5aa95200" rel="noopener noreferrer" target="_blank">LinkedIn</a> &middot;
+        <a href="https://github.com/Sushmita-Sharma1" rel="noopener noreferrer" target="_blank">GitHub</a> &middot;
+        <a href="admin.html">Admin</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/auth.js" defer></script>
+  <script src="js/setup.js" defer></script>
+</body>
+</html>

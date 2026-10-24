@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Admin | Sushmita Sharma</title>
+  <meta name="description" content="Admin panel for managing portfolio case studies and blog posts.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Security policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data: blob:; media-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Admin | Sushmita Sharma">
+  <meta property="og:description" content="Admin panel for managing portfolio case studies and blog posts.">
+  <meta name="theme-color" content="#ffffff">
+  
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  
+  
+  <!-- Modular Stylesheets (Separation of Concerns) -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#app" class="skip-link">Skip to main content</a>
+
+  <!-- Global Header -->
+  <header>
+    <div class="w">
+      <a class="logo" href="index.html">Sushmita<b>.</b>data</a>
+      <nav aria-label="Main Navigation">
+        <a href="index.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="app" tabindex="-1">
+    <section class="no-border">
+      <div class="w">
+        <header class="admin-header">
+          <p class="kick">Admin</p>
+          <h1 class="full-width">Manage content</h1>
+        </header>
+
+        <!-- Authentication Gate -->
+        <div id="gate">
+          <p class="lead">Sign in to manage your work and blog entries.</p>
+          <form class="auth-form" id="lf">
+            <label for="admin-username">
+              Username
+              <input id="admin-username" name="username" autocomplete="username" required maxlength="64">
+            </label>
+            <label for="admin-password">
+              Password
+              <input id="admin-password" name="password" type="password" autocomplete="current-password" required maxlength="200">
+            </label>
+            <div>
+              <button type="submit">Sign in</button>
+            </div>
+            <p class="auth-status" id="lmsg" role="alert"></p>
+          </form>
+        </div>
+
+        <!-- Management Panel (Shown when authenticated) -->
+        <div id="panel" hidden>
+          <div class="session-bar">
+            <span class="note">Signed in as administrator</span>
+            <button class="o" id="logout" type="button">Log out</button>
+          </div>
+
+          <!-- Website Connection Card -->
+          <div class="card connection-card">
+            <h3>Connect your website</h3>
+            <p class="note" id="filenote">Enter your website address and a GitHub access token once. After that, every add, edit and delete is saved to your website automatically.</p>
+            
+            <form id="gf">
+              <label for="gh-url">
+                Website URL
+                <input id="gh-url" name="url" required placeholder="https://yourname.github.io/portfolio" inputmode="url" autocomplete="off" spellcheck="false">
+              </label>
+              <label for="gh-repo">
+                GitHub repository (auto-filled for github.io addresses)
+                <input id="gh-repo" name="repo" placeholder="owner/repo">
+              </label>
+              <label for="gh-dir">
+                Folder inside the repository (leave empty if <b>index.html</b> is at the top level)
+                <input id="gh-dir" name="dir" placeholder="e.g. Portfolio" autocomplete="off" spellcheck="false">
+              </label>
+              <label for="gh-branch">
+                Branch
+                <input id="gh-branch" name="branch" value="main" autocomplete="off" spellcheck="false">
+              </label>
+              <label for="gh-token">
+                GitHub access token
+                <input id="gh-token" name="token" type="password" required autocomplete="off">
+              </label>
+              <details>
+                <summary>How do I get a GitHub token?</summary>
+                <p class="note">On GitHub: Settings &rarr; Developer settings &rarr; Personal access tokens &rarr; Fine-grained tokens &rarr; Generate new token. Select only your website repository and set <b>Contents</b> permissions to <b>Read and write</b>. Paste the generated token above.</p>
+              </details>
+              <div>
+                <button type="submit">Connect website</button>
+              </div>
+            </form>
+
+            <div class="button-row">
+              <button class="o" id="connect" type="button">Use a local file instead</button>
+              <button class="o" id="forget" type="button" hidden>Disconnect</button>
+              <button class="o" id="dl" type="button">Download a copy</button>
+              <button class="o" id="dlmap" type="button">Download sitemap.xml</button>
+            </div>
+          </div>
+
+          <!-- Content Editor Section -->
+          <div class="editor-layout" id="editor" hidden>
+            <form id="f">
+              <input type="hidden" name="orig">
+              <label for="entry-kind">
+                Type
+                <select id="entry-kind" name="kind">
+                  <option value="works">Work portfolio page</option>
+                  <option value="posts">Blog post</option>
+                </select>
+              </label>
+              <label for="entry-title">
+                Title
+                <input id="entry-title" name="title" required maxlength="120">
+              </label>
+              <label for="entry-slug">
+                Slug (used in the page address)
+                <input id="entry-slug" name="slug" required maxlength="80" pattern="[a-z0-9]+(-[a-z0-9]+)*" title="lowercase letters, numbers and hyphens">
+              </label>
+              <label for="entry-summary">
+                Short summary
+                <input id="entry-summary" name="summary" required maxlength="200">
+              </label>
+              <label for="entry-tags">
+                Tags (comma separated)
+                <input id="entry-tags" name="tags" placeholder="SQL, Power BI">
+              </label>
+              <label for="entry-date">
+                Date
+                <input id="entry-date" name="date" type="date" required>
+              </label>
+              <label for="entry-body">
+                Content
+                <textarea id="entry-body" name="body" required maxlength="50000" placeholder="Use ## for headings, - for bullets, a blank line between paragraphs."></textarea>
+              </label>
+              <label for="entry-dashboard-url" id="dashboard-url-field">
+                Dashboard / Live Preview URL <span class="note" style="display:inline;font-weight:400;">(optional — works entries only; embed an iframe on the detail page)</span>
+                <input id="entry-dashboard-url" name="dashboardUrl" type="url" placeholder="https://public.tableau.com/…" maxlength="2048">
+              </label>
+
+              <!-- Video Upload (works entries only) -->
+              <div id="video-upload-field">
+                <label for="entry-video" style="margin-bottom:6px;">
+                  Project Video <span class="note" style="display:inline;font-weight:400;">(optional — MP4/WebM/OGG, shown as a player on the detail page)</span>
+                </label>
+                <div class="video-upload-box" id="video-upload-box">
+                  <input id="entry-video" name="video" type="file" accept="video/mp4,video/webm,video/ogg" class="video-file-input">
+                  <div class="video-upload-prompt" id="video-upload-prompt">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <span>Click to choose a video file<br><small>MP4 · WebM · OGG</small></span>
+                  </div>
+                  <div class="video-preview-wrap" id="video-preview-wrap" hidden>
+                    <video id="video-preview" controls muted class="video-preview-player"></video>
+                    <div class="video-meta" id="video-meta"></div>
+                    <button type="button" class="o video-clear-btn" id="video-clear-btn">Remove video</button>
+                  </div>
+                </div>
+                <!-- Shows current saved path when editing an entry that already has a video -->
+                <div class="video-current" id="video-current" hidden>
+                  <span class="note">Current video: </span><span id="video-current-path" class="video-current-path"></span>
+                  <button type="button" class="o" id="video-remove-saved-btn" style="padding:4px 12px;font-size:0.8rem;">Remove</button>
+                </div>
+              </div>
+
+              <!-- Images & Documents Attachments (works and blog) -->
+              <div id="attachments-field">
+                <label style="margin-bottom:8px;display:block;">
+                  Images &amp; Documents
+                  <span class="note" style="display:inline;font-weight:400;">(optional — upload multiple files, then drag to set display order)</span>
+                </label>
+                <div class="attach-dropzone" id="attach-dropzone">
+                  <input
+                    id="entry-attachments"
+                    type="file"
+                    accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.csv"
+                    multiple
+                    class="attach-file-input"
+                  >
+                  <div class="attach-dropzone-prompt">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <span>Click or drag &amp; drop files here</span>
+                    <small>JPG &middot; PNG &middot; GIF &middot; WebP &middot; PDF &middot; DOC &middot; XLS &middot; and more</small>
+                  </div>
+                </div>
+                <!-- Sortable attachment grid rendered by JS -->
+                <div class="attach-grid" id="attach-grid"></div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" id="save">Add entry</button>
+                <button type="button" class="o" id="cancel" hidden>Cancel edit</button>
+              </div>
+              <p class="auth-status" id="msg" role="status"></p>
+            </form>
+
+            <!-- Entries List -->
+            <div class="entries-container">
+              <h2 class="entries-heading">All entries</h2>
+              <div class="entries-list" id="entries"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="w">
+      <span>&copy; <span id="yr">2026</span> Sushmita Sharma, data analyst, Delhi</span>
+      <span>
+        <a href="mailto:sushmitasharma741@gmail.com">Email</a> &middot;
+        <a href="https://www.linkedin.com/in/sushmita-sharma-b5aa95200" rel="noopener noreferrer" target="_blank">LinkedIn</a> &middot;
+        <a href="https://github.com/Sushmita-Sharma1" rel="noopener noreferrer" target="_blank">GitHub</a> &middot;
+        <a href="admin.html">Admin</a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data/content.js" defer></script>
+  <script src="data/auth.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</body>
+</html>
