@@ -65,9 +65,9 @@ window.SITE_CONTENT = {
       ],
       "date": "2026-10-18",
       "body": "## Project Overview\n\nAn end-to-end SQL data analysis project focused on e-commerce sales, revenue trends, customer segmentation, payment analysis, and product performance using a dataset of over 100,000 order records from an Amazon-style marketplace.\n\n## Key Areas of Analysis\n\n- Sales and revenue trends by month, quarter, and product category\n- Customer purchase frequency and loyalty segmentation (one-time vs. repeat buyers)\n- Payment method preferences and their correlation with average order value\n- Product category pricing distribution and top-performing SKUs\n- Seasonal sales patterns and peak demand windows\n- Data quality assessment — missing category values and duplicate order handling\n\n## SQL Techniques Used\n\n- **CTEs** for multi-step transformations and readable query chains\n- **Window functions** (RANK, ROW_NUMBER, LAG) for period-over-period comparisons\n- **Aggregate functions** with GROUP BY for category and segment rollups\n- **CASE statements** for customer tier and purchase-frequency bucketing\n- **JOINs** across orders, products, customers, and payments tables\n\n## Key Findings\n\n- Electronics and Clothing together account for 61% of total revenue.\n- 38% of customers place only one order — a significant repeat-purchase opportunity.\n- UPI and credit card cover 72% of all transactions.\n- Revenue peaks in October–November, driven by festive season demand.\n- Repeat customers spend 23% more per order than first-time buyers on average.\n\n## Business Value\n\nThis project demonstrates how structured SQL analysis can transform raw transaction data into clear, actionable business intelligence — from identifying high-value customers to pinpointing best-performing categories and optimal promotional timing.",
-      "videoPath": "media/videos/vidssave.com____________480P.mp4",
+      "videoPath": "media/videos/amz_vdo.mp4",
       "attachments": [
-        "media/docs/amazon-sales-presentation.pdf"
+        "media/images/Screenshot_2026-10-28_114549.png"
       ]
     },
     {
