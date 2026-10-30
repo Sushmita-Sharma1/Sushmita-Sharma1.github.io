@@ -95,15 +95,18 @@ window.SITE_CONTENT = {
   "posts": [
     {
       "slug": "why-sla-percentage-hides-the-story",
-      "title": "Why One SLA Percentage Hides the Real Story",
-      "summary": "85–90% compliance sounds good. Here is why I never stop at the headline number — and the five-step framework I use instead.",
+      "title": "Bumble User Behavior & Engagement Analysis",
+      "summary": "I analysed 59,944 Bumble profiles using Python and Pandas, then built an interactive Tableau dashboard to explore age, location, education, jobs and relationship status",
       "tags": [
         "KPI",
         "Reporting",
         "Data Analysis"
       ],
-      "date": "2026-02-10",
-      "body": "A single compliance figure tells you how often you hit the target. It does not tell you where the misses cluster, which categories are dragging the number down, or whether the same root cause is repeating every month.\n\n## Ask Where, Not Just How Many\n\nSplit the same number by category, priority, and turnaround band and the picture changes completely. Misses are rarely spread evenly across all ticket types. In most service desks I have analysed, 60–70% of SLA breaches come from fewer than 20% of the categories.\n\nOnce you know which categories breach most often, you can ask a much sharper question: is it a volume problem, a staffing problem, or a process problem?\n\n## Then Ask What Repeats\n\nA one-off breach in a low-volume category is noise. A breach that returns in the same category, at the same point in the month, for three consecutive months is a signal.\n\nThe real win is identifying causes that repeat. That is where the biggest sustainable improvement lives — not in chasing individual outliers.\n\n## A Simple Framework\n\n- **Headline rate** — the number everyone already knows.\n- **Category breakdown** — which 20% of categories account for 60–70% of breaches?\n- **Priority split** — are P1/P2 tickets being sacrificed to hit volume targets on P3/P4?\n- **Trend view** — is the breach rate improving, stable, or worsening month-on-month?\n- **Root cause recurrence** — which causes appeared in more than two consecutive months?\n\nThis five-step view takes about 15 minutes to build in any BI tool. It turns a headline compliance number into an actual action list."
+      "date": "2026-10-22",
+      "body": "Project Overview\n\nThis project looks at user profile data from Bumble to understand who is on the platform. I cleaned and prepared the data in Python and Pandas, explored it with charts, and then built an interactive dashboard in Tableau so anyone can explore the results.\n\nKey Numbers\nMetric\tValue\nTotal profiles\t59,944\nAverage age\t32.34\nSingle profiles\t92.9%\nSan Francisco profiles\t31,063\nMy Process\nData Exploration: I checked the columns, data types and missing values.\nData Cleaning: I looked for missing values, unreported income values and possible outliers.\nData Preparation: I converted the last_online field to datetime format and created age groups and income groups.\nExploratory Data Analysis: I explored profile patterns using Python and visualisations.\nWhat I Explored\nProfile demographics: age and gender distribution\nGeographic distribution: where profiles are located, including San Francisco\nEducation and occupation: education levels and job categories\nRelationship and lifestyle: relationship status and body-type categories\nWhat the Data Shows\nMost profiles are in San Francisco (31,063), which is more than half of the dataset.\nNearly all profiles (92.9%) are single.\nMost users have a college or university degree (23,959 profiles), and a masters degree is the next most common (8,961).\nMany profiles have no job listed (8,197), and “other” is the next largest group (7,589).\nInteractive Dashboard\n\nThe Tableau dashboard has six views: Age & Gender, Education, Job Distribution, Top Locations, Relationship Status and User Demographics.\n[View the Dashboard →] (add your Tableau Public link here)\n\nTools Used\n\nPython · Pandas · Tableau\n\nLet’s Discuss\n\nWhich profile dimension would you explore first, and why: age, location, education or relationship status? I’d love to hear your view.",
+      "attachments": [
+        "media/docs/bumble--.pdf"
+      ]
     },
     {
       "slug": "replacing-spreadsheet-steps-with-pandas",
