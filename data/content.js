@@ -124,7 +124,7 @@ window.SITE_CONTENT = {
     {
       "slug": "how-i-choose-the-right-chart",
       "title": "How I Choose the Right Chart for Every Dataset",
-      "summary": "Bar, line, scatter, or heatmap? A practical decision framework for picking the chart type that communicates the point clearly — not just the one that looks impressive.",
+      "summary": "Bar, line, scatter, or heatmap? A practical decision framework for picking the chart type that communicates the point clearly not just the one that looks impressive.",
       "tags": [
         "Data Visualisation",
         "Storytelling",
